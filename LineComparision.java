@@ -1,30 +1,35 @@
-package line_comparision;
-import java.util.*;
+package uc3_compareTo_method_to_compare_2_Lengths;
 
-public class Line {
-	Point p1, p2;
+import uc1_Calculate_Length_of_line.Line_Length;
+
+public class CompareTo extends Line_Length {
 	
-	@Override
-	public int hashCode() {
-		return Objects.hash(p1, p2);
-	}
 
-	@Override
-	public boolean equals(Object obj) {
-		/*if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Line other = (Line) obj;
-		return Objects.equals(p1, other.p1) && Objects.equals(p2, other.p2);
-		*/
+	public static void main(String[] args) {
 		
-		return this.getLength() == ((Line)obj).getLength();
+		double length1, length2 ;
+		System.out.println("Enter the co-ordinates of 1st line ");
+		length1 = Calculet_length();
+		System.out.println("Enter the co-ordinates of 1st line ");
+		length2 = Calculet_length();
+		
+		String len1 = length1+" ";
+		String len2 = length2+" ";
+		int check = (len1.compareTo(len2));
+		System.out.println(len2+" "+len1);
+		
+		if ( check < 0 ) {
+			System.out.println(" length2 is greater than length1 by margin of  "+check);
+		}
+		
+		else if ( check > 0 ) {
+			System.out.println(" length1 is greater than length2 by margin of  "+check);
+		}
+		
+		else {
+			System.out.println(" length1 is equal to  length2 ");
+		}
+		
 	}
 
-	public double getLength() {
-		return Math.sqrt(((p2.x-p1.x)*(p2.x-p1.x))+((p2.y-p1.y)*(p2.y-p1.y)));
-	}
 }
